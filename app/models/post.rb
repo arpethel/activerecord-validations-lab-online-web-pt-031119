@@ -12,6 +12,8 @@ class Post < ActiveRecord::Base
     # end
     arr = ["Won't Believe", "Secret", "Top[0-10]", "Guess"]
     if arr.any?{|string| string.include? title}
+    else
+      return false
     end
   end
 end
