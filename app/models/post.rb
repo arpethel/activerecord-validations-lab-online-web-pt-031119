@@ -7,11 +7,13 @@ class Post < ActiveRecord::Base
   validate :title_must_be_clickbait
 
   def title_must_be_clickbait
-    # if title.present? && title.include?("True", "Facts")
-    #   errors.add(:title, "must be clickbait")
-    # end
-    arr = ["Won't Believe", "Secret", "Top[0-10]", "Guess"]
-    if arr.none?{|string| !string.include? title}
+    if title.present? && title.include?("True" || "Facts")
+      errors.add(:title, "must be clickbait")
     end
+    # arr = ["Won't Believe", "Secret", "Top[0-10]", "Guess"]
+    # if title && !title.include?("Won't Believe" || "Secret" ||
+    #   "Top [number]" || "Guess")
+    #   errors.add(:title, "Must be clickbait-y")
+    # end
   end
 end
