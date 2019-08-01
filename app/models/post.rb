@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
     #   errors.add(:title, "must be clickbait")
     # end
     arr = ["Won't Believe", "Secret", "Top[0-10]", "Guess"]
-    if arr.any?{|string| string.include? title}
+    if arr.any?{|string| string.include? :title}
     end
   end
 end
